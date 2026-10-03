@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dynamic Web Page</title>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: Arial;
+            text-align: center;
+            background: #f4f6f8;
+            padding: 30px;
+        }
+
+        .box {
+            background: white;
+            padding: 25px;
+            max-width: 700px;
+            margin: auto;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        canvas {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1>Student Marks Dashboard</h1>
+
+    <p id="message">Welcome to the Dynamic Web Page!</p>
+
+    <button onclick="changeContent()">Change Content</button>
+
+    <h2>Student Performance</h2>
+
+    <canvas id="marksChart"></canvas>
+</div>
+
+<script>
+
+    // Dynamic Content
+    function changeContent() {
+        document.getElementById("message").innerHTML =
+            "Content updated dynamically using JavaScript!";
+    }
+
+    // Dynamic Chart
+    const ctx = document.getElementById("marksChart");
+
+    new Chart(ctx, {
+        type: "bar",
+
+        data: {
+            labels: ["Web Dev", "DBMS", "AI", "Python", "Maths"],
+
+            datasets: [{
+                label: "Marks",
+                data: [90, 85, 92, 88, 80],
+                backgroundColor: "skyblue"
+            }]
+        },
+
+        options: {
+            responsive: true,
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100
+                }
+            }
+        }
+    });
+
+</script>
+
+</body>
+</html>
